@@ -107,10 +107,14 @@ def winner(board)
   board[won?(board)[0]]
 end
 
-def play(board)
-  counter = 1
-  until counter == 10
-    turn(board)
-    counter += 1
+def play
+  until over?(board)
+    turn
+  end
+  if draw?
+    puts "Cat's Game!"
+  end
+  if won?
+    puts "Congratulations" + winner + "!"
   end
 end
