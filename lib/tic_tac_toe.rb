@@ -110,9 +110,8 @@ end
 
 def winner(board)
   if won?(board)
-    return nil
+    board[won?(board)[0]]
   end
-  board[won?(board)[0]]
 end
 
 def play(board)
