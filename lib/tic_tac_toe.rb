@@ -1,7 +1,5 @@
 
 
-def initialize(board = [" ", " ", " ", " ", " ", " ", " ", " ", " "])
-end
 
 WIN_COMBINATIONS = [
   [0,1,2],
@@ -39,7 +37,9 @@ end
 end
 
 def valid_move?(board, index)
- board.between?(0,8) && !position_taken?(board, index)
+ if board[index] == " "
+   true
+end
 end
 
 def turn(board)
