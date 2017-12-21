@@ -109,14 +109,14 @@ end
 end
 
 def winner(board)
-  if !won?(board)
+  if won?(board)
     return nil
   end
   board[won?(board)[0]]
 end
 
 def play(board)
-until over?(board)
+until !over?(board)
   turn(board)
    end
    if  winner(board) == "X" && winner(board) != "O"
