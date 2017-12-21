@@ -69,7 +69,7 @@ def current_player(board)
    turn_count(board) % 2 == 0 ? "X" : "O"
 end
 
-def won? (board)
+def won?(board)
   WIN_COMBINATIONS.each do |win_combination|
     index0 = win_combination[0]
     index1 = win_combination[1]
