@@ -75,3 +75,26 @@ def won? (board)
  end
    return nil
 end
+
+def full?(board)
+board.none?{|index| index == "" || index == " " || index == nil}
+end
+
+def draw?(board)
+!won?(board) && full?(board)
+end
+
+def over?(board)
+  if (won?(board) || full?(board) || draw?(board))
+  return true
+else
+  false
+end
+end
+
+def winner(board)
+  if !won?(board)
+    return nil
+  end
+  board[won?(board)[0]]
+end
