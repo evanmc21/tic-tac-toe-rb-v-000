@@ -1,3 +1,8 @@
+
+
+def initialize(board = [" ", " ", " ", " ", " ", " ", " ", " ", " "])
+  @board = board
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
