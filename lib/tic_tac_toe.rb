@@ -60,3 +60,18 @@ end
 def current_player(board)
    turn_count(board) % 2 == 0 ? "X" : "O"
 end
+
+def won? (board)
+  WIN_COMBINATIONS.each do |win_combination|
+    index0 = win_combination[0]
+    index1 = win_combination[1]
+    index2 = win_combination[2]
+
+     if board[index0] == "X" && board[index1] == "X" && board[index2] == "X"
+   return win_combination
+ elsif board[index0] == "O" && board[index1] == "O" && board[index2] == "O"
+   return win_combination
+ end
+ end
+   return nil
+end
