@@ -1,7 +1,7 @@
 
 
 def initialize(board = [" ", " ", " ", " ", " ", " ", " ", " ", " "])
-  @board = board
+end
 
 WIN_COMBINATIONS = [
   [0,1,2],
@@ -15,40 +15,40 @@ WIN_COMBINATIONS = [
 ]
 
 def display_board(board)
- puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+ puts " #{board[0]} | #{board[1]} | #{board[2]} "
  puts "-----------"
- puts " #{@board[3]} | #{@board[4]} | #{@board [5]} "
+ puts " #{board[3]} | #{board[4]} | #{board [5]} "
  puts "-----------"
- puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+ puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
 def input_to_index(input)
   input.to_i - 1
 end
 
-def move(index, current_player = "X")
-  @board[index] = current_player
+def move(board, index, current_player = "X")
+  board[index] = current_player
 end
 
-def position_taken?(index)
- if @board[index] == "" || @board[index] == " " || @board[index] == nil
+def position_taken?(board, index)
+ if board[index] == "" || board[index] == " " || board[index] == nil
    false
  else
    true
 end
 end
 
-def valid_move?(index)
- @board.between?(0,8) && !position_taken?(board, index)
+def valid_move?(board, index)
+ board.between?(0,8) && !position_taken?(board, index)
 end
 
-def turn
+def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
   valid = valid_move?(board, index)
   if valid == true
-    move(index, "X")
+    move(board, index, "X")
     display_board(board)
 else
   puts "Please enter 1-9:"
@@ -56,9 +56,9 @@ else
 end
 end
 
-def turn_count
+def turn_count(board)
 counter = 0
-@board.each do |turn|
+board.each do |turn|
   if turn == "X" || turn == "O"
     counter += 1
   end
@@ -66,8 +66,8 @@ end
 return counter
 end
 
-def current_player
-   turn_count % 2 == 0 ? "X" : "O"
+def current_player(board)
+   turn_count(board) % 2 == 0 ? "X" : "O"
 end
 
 def won?(board)
@@ -85,15 +85,15 @@ def won?(board)
    return nil
 end
 
-def full?
-@board.none?{|index| index == "" || index == " " || index == nil}
+def full?(board)
+board.none?{|index| index == "" || index == " " || index == nil}
 end
 
-def draw?
+def draw?(board)
 !won?(board) && full?(board)
 end
 
-def over?
+def over?(board)
   if (won?(board) || full?(board) || draw?(board))
   return true
 else
