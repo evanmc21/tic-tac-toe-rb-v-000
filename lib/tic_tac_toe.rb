@@ -1,6 +1,4 @@
 
-
-
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -112,10 +110,10 @@ def play
   until over?(board)
     turn
   end
-  if draw?
+  if draw?(board)
     puts "Cat's Game!"
   end
-  if won?
+  if won?(board)
     puts "Congratulations" + winner + "!"
   end
 end
