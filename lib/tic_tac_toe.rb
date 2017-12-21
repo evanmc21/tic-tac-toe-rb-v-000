@@ -106,7 +106,7 @@ def winner(board)
   board[won?(board)[0]]
 end
 
-def play
+def play(board)
   until over?(board)
     turn
   end
