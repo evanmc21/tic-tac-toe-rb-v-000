@@ -116,9 +116,10 @@ def winner(board)
 end
 
 def play(board)
-until over?(board)
+while !over?(board)
   turn(board)
-   end
+end
+
    if  winner(board) == "X" && winner(board) != "O"
      puts "Congratulations X!"
    elsif winner(board) == "O"
